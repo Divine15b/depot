@@ -42,10 +42,10 @@ pipeline {
 
     post {
         success {
-            echo "✅ Clonage, Tests unitaires et Déploiement réussis !"
+            echo "Le clonage, Tests unitaires et Déploiement sont réussis !"
         }
         failure {
-            echo "🚨 Le pipeline a échoué ! Vérifie les logs."
+            echo "Le pipeline a échoué ! Vérifie les logs."
         }
     }
 }
