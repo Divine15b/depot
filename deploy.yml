@@ -1,0 +1,18 @@
+- name: Déployer l'application simple
+  hosts: holpha
+  become: true
+
+  tasks:
+    - name: Créer le dossier de l'app sur le serveur
+      file:
+        path: /opt/python-webapp
+        state: directory
+        mode: '0755'
+
+    - name: Copier le code sur le serveur
+      copy:
+        src: ./app.py
+        dest: /opt/python-webapp/app.py
+
+    - name: Exécuter l'application
+      shell: python3 /opt/python-webapp/app.py &
