@@ -1,2 +1,2 @@
-[holpha]
-192.168.233.135 ansible_user=divine ansible_ssh_private_key_file=~/.ssh/divkey
+[jenkins]
+192.168.233.135 ansible_user=tena ansible_ssh_private_key_file=~/.ssh/divkey
