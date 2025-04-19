@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Cloner le dépôt') {
             steps {
-                git 'https://github.com/Divine15b/depot.git'
+                git 'https://github.com/Ratpi792i/depoliel.git'
             }
         }
 

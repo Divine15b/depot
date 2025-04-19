@@ -1,18 +1,24 @@
 - name: Déployer l'application simple
-  hosts: holpha
+  hosts: jenkins
   become: true
+  vars_files:
+    - secrets.yml
 
   tasks:
     - name: Créer le dossier de l'app sur le serveur
       file:
-        path: /opt/python-webapp
+        path: /opt/new-api
         state: directory
         mode: '0755'
 
     - name: Copier le code sur le serveur
       copy:
         src: ./app.py
-        dest: /opt/python-webapp/app.py
+        dest: /opt/new-api/app.py
 
     - name: Exécuter l'application
-      shell: python3 /opt/python-webapp/app.py &
+      shell: python3 /opt/new-api/app.py &
+
+    - name: Affichage clé secrète depuis Vault
+      debug:
+        msg: "La clé secrète est : {{ app_secret_key }}"
